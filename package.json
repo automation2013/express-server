@@ -1,0 +1,23 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "express简单的服务器",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/automaiton13/express-server.git"
+  },
+  "keywords": [
+    "express",
+    "server"
+  ],
+  "author": "automation13",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/automaiton13/express-server/issues"
+  },
+  "homepage": "https://github.com/automaiton13/express-server#readme"
+}
