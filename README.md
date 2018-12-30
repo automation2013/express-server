@@ -8,3 +8,9 @@ express简单的服务器
 
 工程启动：
 1、npm start
+
+
+开源框架
+1、node            使用V8及以上的版本（http://nodejs.cn/）
+2、es-checker      可以检测当前版本node对支持情况，不过工程里未安装（https://www.jianshu.com/p/a9c27b80af9d）
+3、babel.js        解决node不能使用ES6语法（https://www.babeljs.cn/）

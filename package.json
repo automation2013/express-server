@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/automaiton13/express-server/issues"
   },
-  "homepage": "https://github.com/automaiton13/express-server#readme"
+  "homepage": "https://github.com/automaiton13/express-server#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
 }

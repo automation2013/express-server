@@ -1,1 +1,3 @@
-console.log(1234567)
+
+require('babel-register');
+require('./src/app');
