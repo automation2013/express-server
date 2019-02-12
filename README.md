@@ -15,7 +15,7 @@ express简单的服务器
 1、node            使用V8及以上的版本（http://nodejs.cn/）
 2、es-checker      可以检测当前版本node对支持情况（https://www.jianshu.com/p/a9c27b80af9d）(工程暂未使用未安装)
 3、babel.js        解决node不能使用ES6语法（https://www.babeljs.cn/）
-
+4、eslint          JavaScript静态代码检查工具
 
 代码规范：
 1、代码注释规范：    JSDoc（https://www.css88.com/doc/jsdoc/tags-description.html）
