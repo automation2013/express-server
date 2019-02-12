@@ -7,7 +7,8 @@ express简单的服务器
 
 
 工程启动：
-1、npm start
+1、查看node版本，确定使用V8及以上的版本
+2、express-server路径下运行命令：npm start
 
 
 涉及开源框架：

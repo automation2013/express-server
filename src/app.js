@@ -12,7 +12,7 @@ import path from 'path';
 /**
  * @description 服务器配置参数
  */
-import {SERVER_PORT} from './config/expressConfig';
+import {SERVER_PORT} from './config/express';
 
 /**
  * @description 创建express服务器
@@ -37,5 +37,5 @@ app.get('/users/:userId/books/:bookId', function (req, res) {
  * @description 启动express服务器，监听端口号为：SERVER_PORT
  */
 app.listen(SERVER_PORT, () => {
-    console.log(`express server starts to listen port ${SERVER_PORT}`);
+    console.log(`[server start information] express server starts to listen port ${SERVER_PORT}`);
 });
