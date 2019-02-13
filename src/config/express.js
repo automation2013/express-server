@@ -4,10 +4,8 @@
  * @description express服务器配置
  */
 
-'use strict';
-
- /**
-  * @description express服务器监听的本机端口号
-  * @public
-  */
- export const SERVER_PORT = 5000;
+/**
+ * @description express服务器监听的本机端口号
+ * @public
+ */
+export const SERVER_PORT = 5000;
