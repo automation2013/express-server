@@ -12,7 +12,7 @@ import path from 'path';
 /**
  * @description 服务器配置参数
  */
-import {SERVER_PORT} from './config/express';
+import { SERVER_PORT } from './config/express';
 
 /**
  * @description 创建express服务器
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.send('<div style="color:red">Hello World</div>');
 });
 
-app.get('/users/:userId/books/:bookId', function (req, res) {
+app.get('/users/:userId/books/:bookId', function(req, res) {
     res.send(req.params);
 });
 
