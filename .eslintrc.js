@@ -65,7 +65,7 @@ module.exports = {
         // 当代码块只有一条语句时，不允许省略大括号
         "curly": "error",
         // 表达式中的点号操作符应该和对象部分在同一行
-        "dot-location": ["error", "object"],
+        "dot-location": ["error", "property"],
         // 要求使用 === 和 !==
         "eqeqeq": ["error", "always"],
         // 禁用 caller 或 callee
