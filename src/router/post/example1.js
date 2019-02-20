@@ -14,7 +14,7 @@ import _get from 'lodash/get';
 
 router.post('/example1', function(req, res) {
     // 测试setRouterData, getRouterData函数
-    setRouterData(res, 123);
+    setRouterData(res, { test: 123, });
     console.log(`测试setRouterData: ${getRouterData(res)}`);
 
     let body = _get(req, 'body') || {};

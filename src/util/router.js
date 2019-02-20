@@ -3,7 +3,7 @@
  * @author automation13 <1271547283@qq.com>
  */
 
-const KEY = 'storeData';
+const KEY = 'enhanceStoreData';
 
 // lodash
 import _set from 'lodash/set';
