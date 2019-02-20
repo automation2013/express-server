@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="/static/images/head.png">
+    <title>request-test</title>
+</head>
+<body>
+    <button class="js-button-post-json xx">post请求json数据</button>
+    <div class="js-json-data">
+    <div>China</div>
+    </div>
+    <button class="js-button-post-form xx">post请求form数据</button>
+    <div class="js-form-data">
+
+    </div>
+    <script type="text/javascript">
+        // 发送json类型数据
+        function sendJsonData() {
+            var request = new XMLHttpRequest();
+            request.open('post', '/example1');
+            var params = {name: '张三', age: 18};
+            // 发json类型
+            request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
+            request.send(JSON.stringify(params));
+
+            request.onreadystatechange = function (){
+                if(request.readyState === 4 && request.status === 200){
+                    var reponst = request.response;
+                    var dataJson = document.querySelector('.js-json-data');
+                    dataJson.innerHTML = reponst;
+                }
+            }
+        }
+
+        // 发送form类型数据
+        function sendFomData() {
+            var request = new XMLHttpRequest();
+            request.open('post', '/example2');
+            var params = 'name=zhangsan&age=17';
+            // 发送表单类型
+            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数  
+            request.send(params);
+
+            request.onreadystatechange = function (){
+                if(request.readyState === 4 && request.status === 200){
+                    var reponst = request.response;
+                    var dataForm = document.querySelector('.js-form-data');
+                    dataForm.innerHTML = reponst;
+                }
+            }
+        }
+
+        var bottomJson = document.querySelector('.js-button-post-json');
+        var bottomForm = document.querySelector('.js-button-post-form');
+
+        bottomJson.onclick = sendJsonData;
+        bottomForm.onclick = sendFomData;
+    </script>
+</body>
+</html>
