@@ -6,10 +6,12 @@
 let express = require('express');
 let router = express.Router();
 
-router.get('/example2', function(req, res) {
-    res.json({
-        data: 'post请求路径成功：example2',
-    });
+// lodash
+import _get from 'lodash/get';
+
+router.post('/example2', function(req, res) {
+    let body = _get(req, 'body') || {};
+    res.json(body);
 });
 
 export default router;

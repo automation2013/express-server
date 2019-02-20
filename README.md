@@ -18,6 +18,10 @@ express简单的服务器
 4、eslint          JavaScript静态代码检查工具（http://eslint.cn/）
                     （先决条件：Node.js (>=4.x), npm version 2+。 [个人测试eslint版本 >= 5.x 时需要 Node.js >= 8.x] http://eslint.cn/docs/user-guide/getting-started）
                     （https://blog.csdn.net/u014390748/article/details/79477652）
+5、lodash          是一个一致性、模块化、高性能的 JavaScript 实用工具库（https://www.lodashjs.com/docs/4.17.5.html）
+6、express         HTTP服务器（http://www.expressjs.com.cn/）
+7、body-parser     express插件，解析http的body
+
 代码规范：
 1、代码注释规范：    JSDoc（https://www.css88.com/doc/jsdoc/tags-description.html）
                         JsDoc-support-in-JavaScript：https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript

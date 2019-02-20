@@ -8,15 +8,15 @@ let router = express.Router();
 
 router.route('/*')
     .get(function(req, res, next) {
-        console.log('express-route: start.js get方法');
         next();
     })
     .post(function(req, res, next) {
-        console.log('express-route: start.js post方法');
+        res.set({
+            'Content-Type': 'application/json',
+        });
         next();
     })
     .all(function(req, res, next) {
-        console.log('express-route: start.js all方法');
         next();
     });
 
