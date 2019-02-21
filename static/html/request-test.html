@@ -23,7 +23,7 @@
         // 发送json类型数据
         function sendJsonData() {
             var request = new XMLHttpRequest();
-            request.open('post', '/example1');
+            request.open('post', '/exampleJson');
             var params = {name: '张三', age: 18};
             // 发json类型
             request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
@@ -41,7 +41,7 @@
         // 发送form类型数据
         function sendFomData() {
             var request = new XMLHttpRequest();
-            request.open('post', '/example2');
+            request.open('post', '/exampleForm');
             var params = 'name=zhangsan&age=17';
             // 发送表单类型
             request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数  
