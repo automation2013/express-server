@@ -40,8 +40,7 @@ app.use(session({ // Create a session middleware with the given options.
     cookie           : { // default value is { path: '/', httpOnly: true, secure: false, maxAge: null }.
         secure  : false, // 插件官网建议生产换件设为true. Using cookie-parser may result in issues if the secret is not the same between this module and cookie-parser.(http://www.expressjs.com.cn/en/resources/middleware/session.html)
         httpOnly: true,
-        // maxAge  : 24 * 60 * 60 * 1000, // 过期时间：1day
-        maxAge  : 5 * 1000, // 过期时间：1day
+        maxAge  : 24 * 60 * 60 * 1000, // 过期时间：1day
     },
 }));
 app.use(bodyParser.json()); // create application/json parser
