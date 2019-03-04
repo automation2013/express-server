@@ -9,6 +9,11 @@
 require('babel-register');
 
 /**
+ * @description 工程所需要的公共的功能
+ */
+require('./src/global');
+
+/**
  * @description 业务逻辑入口
  */
 require('./src/app');
