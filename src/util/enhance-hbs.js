@@ -1,5 +1,5 @@
 /**
- * @file 为express中间件handlebars增加helper，helper的名称为了和官方的区别开来，建议以"my-xx"的格式来命名，如果不需要这些helper则app.js中无需引用这个文件
+ * @file 为express中间件handlebars增加helper和partial，名称为了和官方的区别开来，建议以"my-xx"的格式来命名，如果不需要这些helpe和partialr则app.js中无需引用这个文件
  * @author automation13 <1271547283@qq.com>
  */
 
