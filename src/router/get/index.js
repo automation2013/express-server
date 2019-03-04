@@ -7,9 +7,10 @@ const express = require('express');
 const router = express.Router();
 
 // 子路由
-import example1 from './example1';
+import example from './example';
 import exampleCookie from './exampleCookie';
 import exampleSession from './exampleSession';
+import exampleHandlebars from './exampleHandlebars';
 
 // 重定向到首页
 router.get('/', function(req, res) {
@@ -22,8 +23,9 @@ router.get('/index', function(req, res) {
 });
 
 // 使用子路由
-router.use('/', example1);
+router.use('/', example);
 router.use('/', exampleCookie);
 router.use('/', exampleSession);
+router.use('/', exampleHandlebars);
 
 export default router;

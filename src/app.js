@@ -9,6 +9,7 @@ import path from 'path';
 
 // express中间件
 import router from './router';
+import './util/enhance-hbs';
 
 // 服务器配置参数
 import { SERVER_PORT, } from './config/express';

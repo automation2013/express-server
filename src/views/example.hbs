@@ -1,0 +1,72 @@
+<style>
+    .bold{
+        font-weight: bold;
+        color: red;
+    }
+</style>
+<div class="entry">
+    <h1>{{title}}</h1>
+    {{! 这个注释不会显示在输出结果中 }}
+    {{!--
+        多行注释
+    --}}
+    <h2>aaaaaabbbccccc</h2>
+    <!-- 会显示注释 -->
+    <div class="body">
+        {{{htmlDom}}}
+    </div>
+    <!-- ~用于消除生成的HTML标签的前头的换行和空格 -->
+    {{#each nav ~}}
+        <a href="{{url}}">
+            {{~#if test}}
+                {{~title}}
+            {{~^~}}
+                Empty
+            {{~/if~}}
+        </a>
+    {{~/each}}
+    <!-- 默认生成的HTML文件有换行和空格 -->
+    {{#each nav}}
+        <a href="{{url}}">
+            {{#if test}}
+                {{title}}
+            {{^}}
+                Empty
+            {{/if}}
+        </a>
+    {{~/each}}
+    {{! 测试js脚本 }}
+    <script>
+        function testFun() {
+            console.log(111)
+        }
+        window.testFun = testFun;
+        testFun();
+    </script>
+    {{! handlebars官方helper }}
+    <div class="entry">
+        <h1>{{title}}</h1>
+        {{#with story}}
+            <div class="intro">{{{intro}}}</div>
+            <div class="body">{{{body}}}</div>
+        {{/with}}
+    </div>
+    {{#if isActive}}
+        <img src="star.gif" alt="Active">
+    {{else if isInactive}}
+        <img src="cry.gif" alt="Inactive">
+    {{/if}}
+    {{! handlebars自定义helper }}
+    {{#my-list-example nav1}}
+        <a href="{{url}}">{{title}}</a>
+    {{/my-list-example}}
+    <div class="bold">
+        {{#my-bold-example}}
+            {{#my-list-example nav1}}
+                <a href="{{url}}">{{title}}</a>
+            {{/my-list-example}}
+        {{/my-bold-example}}
+    </div>
+    {{! handlebars自定义partial，允许HTML的标签是参数 }}
+    {{> my-partial-example tagName="h1"}}
+</div>
