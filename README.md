@@ -23,6 +23,8 @@ express简单的服务器
 7、body-parser       express插件，解析http的body
 8、cookie-parser     express插件，解析cookie
 9、express-session   express插件（官网插件名：session），解析express
+10、hbs              express模板引擎（https://github.com/pillarjs/hbs）
+
 
 代码规范：
 1、代码注释规范：    JSDoc（https://www.css88.com/doc/jsdoc/tags-description.html）
