@@ -11,7 +11,7 @@ const router = express.Router();
 import _get from 'lodash/get';
 
 router.post('/exampleForm', function(req, res) {
-    let body = _get(req, 'body') || {};
+    const body = _get(req, 'body') || {};
     res.json(body);
 });
 

@@ -18,7 +18,7 @@ router.post('/exampleJson', function(req, res) {
     setRouterData(res, { test: 123, });
     console.log(`测试setRouterData: ${getRouterData(res)}`);
 
-    let body = _get(req, 'body') || {};
+    const body = _get(req, 'body') || {};
     res.json(body);
 });
 
