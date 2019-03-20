@@ -7,10 +7,10 @@ const express = require('express');
 const router = express.Router();
 
 // 子路由
-import example from './example';
-import exampleCookie from './exampleCookie';
-import exampleSession from './exampleSession';
-import exampleHandlebars from './exampleHandlebars';
+import example from './example/example';
+import exampleCookie from './example/exampleCookie';
+import exampleSession from './example/exampleSession';
+import exampleHandlebars from './example/exampleHandlebars';
 
 // 重定向到首页
 router.get('/', function(req, res) {

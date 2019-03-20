@@ -8,8 +8,8 @@ const express = require('express');
 const router = express.Router();
 
 // 子路由
-import exampleJson from './exampleJson';
-import exampleForm from './exampleForm';
+import exampleJson from './example/exampleJson';
+import exampleForm from './example/exampleForm';
 
 // 使用子路由
 router.use('/', exampleJson);

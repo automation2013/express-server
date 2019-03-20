@@ -10,6 +10,7 @@ let router = express.Router();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+import { enhanceRequest, enhanceResponse, } from '../util/enhance-express-middleware';
 
 // express中间件初始化
 router.use(cookieParser()); // cookie解析的中间件
@@ -27,6 +28,8 @@ router.use(session({ // Create a session middleware with the given options.
 }));
 router.use(bodyParser.json()); // create application/json parser
 router.use(bodyParser.urlencoded({ extended: true, })); // create application/x-www-form-urlencoded parser。（The extended option allows to choose between parsing the URL-encoded data with the querystring library (when false) or the qs library (when true)）（http://www.expressjs.com.cn/en/resources/middleware/body-parser.html）
+router.use(enhanceRequest); // 增加express的req的功能
+router.use(enhanceResponse); // 增加express的res的功能
 
 // 导入路由
 import routerStart from './start'; // 所有业务路由之前处理数据
