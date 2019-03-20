@@ -7,8 +7,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/exampleCookie', function(req, res) {
-    res.cookie('cookieTest', `test${new Date().getTime()}`, { maxAge: 30 * 1000, httpOnly: true, }); // 超时时间30s
-    console.log(`exampleCookie测试：${JSON.stringify(req.cookies)}`); // 如果超时则打印的cookie中没有cookieTest这个cookie
+    res.enhanceAddCookie('COOKIE_EXAMPLE1', 'xxxxxxxx')
+    console.log(`exampleCookie测试：${JSON.stringify(req.enhanceGetCookie('COOKIE_EXAMPLE1'))}`); // 如果超时则打印的cookie中没有cookieTest这个cookie
     res.send('exampleCookie：设置cookie成功');
 });
 

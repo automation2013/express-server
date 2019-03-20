@@ -13,7 +13,7 @@ const session = require('express-session');
 import { enhanceRequest, enhanceResponse, } from '../util/enhance-express-middleware';
 
 // express中间件初始化
-router.use(cookieParser()); // cookie解析的中间件
+router.use(cookieParser('recommand 128 bytes random string')); // cookie解析的中间件，参数为加密cookie的秘钥（string or array），res.cookie方法设置cookie时如果参数secure为true时要用这个秘钥加密cookie，(参考：http://www.expressjs.com.cn/en/resources/middleware/cookie-parser.html；http://www.expressjs.com.cn/4x/api.html#res.cookie)
 router.use(session({ // Create a session middleware with the given options.
     name             : 'connect.sid', // 使用默认sessionID
     secret           : ['recommand 128 bytes random string', 'secretKey1', 'secretKey2'], // Required option.This is the secret used to sign the session ID cookie.
