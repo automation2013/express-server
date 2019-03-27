@@ -91,7 +91,7 @@ function enhanceClearCookie(cookieName) {
 /**
  * 查询cookie
  * @param cookieName
- * @returns {*}
+ * @returns {string}
  */
 function enhanceGetCookie(cookieName) {
     if (!_isString(cookieName)) {
@@ -101,6 +101,6 @@ function enhanceGetCookie(cookieName) {
         return console.error(`即将清除的cookie：${cookieName}在COOKIE_CONFIG没有进行配置`);
     }
     const cookieNameHttp = COOKIE_CONFIG[cookieName]['key']; // http协议中设置的cookie的名字，相当于加密
-    const cookieValue = this.cookies[cookieNameHttp] || this.signedCookies[cookieNameHttp]
+    const cookieValue = this.cookies[cookieNameHttp] || this.signedCookies[cookieNameHttp] || '';
     return cookieValue; // 通过bind函数使得this指向req对象
 }

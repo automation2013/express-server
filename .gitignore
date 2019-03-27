@@ -39,6 +39,9 @@ jspm_packages/
 # webstorm IDE auto create file
 .idea/
 
+# logs created by log4js
+logs/
+
 # TypeScript v1 declaration files
 typings/
 
