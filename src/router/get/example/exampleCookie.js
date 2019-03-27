@@ -9,6 +9,7 @@ const router = express.Router();
 router.get('/exampleCookie', function(req, res) {
     res.enhanceAddCookie('COOKIE_EXAMPLE1', 'xxxxxxxx')
     console.log(`exampleCookie测试：${JSON.stringify(req.enhanceGetCookie('COOKIE_EXAMPLE1'))}`); // 如果超时则打印的cookie中没有cookieTest这个cookie
+    console.log(`exampleCookie测试所有cookie：${JSON.stringify(req.enhanceGetAllCookie())}`); // 打印所有cookie
     res.send('exampleCookie：设置cookie成功');
 });
 

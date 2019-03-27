@@ -4,7 +4,7 @@
  */
 
 // cookie的config
-import { COOKIE_CONFIG, } from '../config/cookie';
+import { COOKIE_CONFIG, } from '../../config/cookie';
 
 const STORE_DATA_KEY = 'enhanceStoreDataKey';
 
@@ -21,6 +21,7 @@ import _isString from 'lodash/isString';
  */
 function enhanceRequest(req, res, next) {
     req.enhanceGetCookie = enhanceGetCookie.bind(req);
+    req.enhanceGetAllCookie = enhanceGetAllCookie.bind(req);
     next();
 }
 
@@ -74,7 +75,7 @@ function enhanceAddCookie(cookieName, cookieValue) {
 }
 
 /**
- * 清除cookie
+ * 清除单个cookie
  * @param cookieName cookie的key
  */
 function enhanceClearCookie(cookieName) {
@@ -89,7 +90,7 @@ function enhanceClearCookie(cookieName) {
 }
 
 /**
- * 查询cookie
+ * 获取单个cookie
  * @param cookieName
  * @returns {string}
  */
@@ -103,4 +104,14 @@ function enhanceGetCookie(cookieName) {
     const cookieNameHttp = COOKIE_CONFIG[cookieName]['key']; // http协议中设置的cookie的名字，相当于加密
     const cookieValue = this.cookies[cookieNameHttp] || this.signedCookies[cookieNameHttp] || '';
     return cookieValue; // 通过bind函数使得this指向req对象
+}
+
+/**
+ * 获取所有cookie
+ */
+function enhanceGetAllCookie() {
+    const cookies = this.cookies;
+    const signedCookies = this.signedCookies;
+    const cookiesAll = _assign({}, cookies, signedCookies);
+    return cookiesAll;
 }

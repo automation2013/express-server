@@ -10,7 +10,7 @@ let router = express.Router();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-import { enhanceRequest, enhanceResponse, } from '../util/enhance-express-middleware';
+import { enhanceRequest, enhanceResponse, } from '../util/common/enhance-express-middleware';
 
 // express中间件初始化
 router.use(cookieParser('recommand 128 bytes random string')); // cookie解析的中间件，参数为加密cookie的秘钥（string or array），res.cookie方法设置cookie时如果参数secure为true时要用这个秘钥加密cookie，(参考：http://www.expressjs.com.cn/en/resources/middleware/cookie-parser.html；http://www.expressjs.com.cn/4x/api.html#res.cookie)
