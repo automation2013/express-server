@@ -3,6 +3,12 @@
  * @author automation13 <1271547283@qq.com>
  */
 
+import Logger from '../util/common/logger';
+
 process.on('uncaughtException', (err) => {
-    console.log(err);
+    Logger.serverError(`uncaughtException: ${JSON.stringify(err)}`);
+});
+
+process.on('exit', (exitCode) => {
+    Logger.serverError(`server exit, exitCode: ${exitCode}`);
 });

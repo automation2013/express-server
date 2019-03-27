@@ -9,19 +9,19 @@ log4js.configure({
         },
         server: {
             type    : 'dateFile',
-            filename: path.join(__dirname, '../../logs/server.log'),
+            filename: path.join(__dirname, '../../../logs/server.log'),
             pattern : '.yyyy-MM-dd',
             compress: true,
         },
         webGet: {
             type    : 'dateFile',
-            filename: path.join(__dirname, '../../logs/web_get.log'),
+            filename: path.join(__dirname, '../../../logs/web_get.log'),
             pattern : '.yyyy-MM-dd',
             compress: true,
         },
         webPost: {
             type    : 'dateFile',
-            filename: path.join(__dirname, '../../logs/web_post.log'),
+            filename: path.join(__dirname, '../../../logs/web_post.log'),
             pattern : '.yyyy-MM-dd',
             compress: true,
         },

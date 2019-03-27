@@ -6,11 +6,19 @@
 const express = require('express');
 const router = express.Router();
 
+import {webGetLogger} from '../../util/loggerOutput';
+
 // 子路由
 import example from './example/example';
 import exampleCookie from './example/exampleCookie';
 import exampleSession from './example/exampleSession';
 import exampleHandlebars from './example/exampleHandlebars';
+
+// 所有get请求之前处理
+router.get('/*', function(req, res, next) {
+    webGetLogger(req, res);
+    next();
+});
 
 // 重定向到首页
 router.get('/', function(req, res) {

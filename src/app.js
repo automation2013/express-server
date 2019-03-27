@@ -9,10 +9,12 @@ import path from 'path';
 
 // express中间件
 import router from './router';
-import './util/enhance-hbs-demo';
+import './util/example/enhance-hbs-demo';
 
 // 服务器配置参数
 import { SERVER_PORT, } from './config/express';
+
+import Logger from './util/common/logger';
 
 // 创建express服务器
 const app = express();
@@ -35,5 +37,5 @@ app.use('/', router); // express路由
  * @description 启动express服务器，监听端口号为：SERVER_PORT
  */
 app.listen(SERVER_PORT, () => {
-    console.log(`[my server start information] express server starts to listen port ${SERVER_PORT}`);
+    Logger.serverInfo(`express server starts to listen port ${SERVER_PORT}`);
 });
