@@ -6,7 +6,8 @@
 import Logger from '../util/common/logger';
 
 process.on('uncaughtException', (err) => {
-    Logger.serverError(`uncaughtException: ${JSON.stringify(err)}`);
+    const errorStack = err.stack;
+    Logger.serverError(`errorType=uncaughtException:::errorStack=${errorStack}`);
 });
 
 process.on('exit', (exitCode) => {

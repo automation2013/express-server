@@ -10,6 +10,7 @@ import path from 'path';
 // express中间件
 import router from './router';
 import './util/example/enhance-hbs-demo';
+import { enhanceErrorLog, enhanceErrorRender, } from './util/enhance-express-middleware-error';
 
 // 服务器配置参数
 import { SERVER_PORT, } from './config/express';
@@ -32,6 +33,8 @@ app.use('/static', express.static(path.join(__dirname, '../static')));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'hbs'); // express模板引擎：handlebarsjs
 app.use('/', router); // express路由
+app.use(enhanceErrorLog); // express错误处理中间件：记录错误日志
+app.use(enhanceErrorRender); // express错误处理中间件：兜底反馈
 
 /**
  * @description 启动express服务器，监听端口号为：SERVER_PORT

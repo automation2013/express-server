@@ -46,7 +46,7 @@ log4js.configure({
     },
 });
 
-let loggerServer = log4js.getLogger('server'); // 服务器的日志，启动日志什么的
+let loggerServer = log4js.getLogger('server'); // 服务器的日志：启动日志，错误日志什么的
 let loggerWebGet = log4js.getLogger('webGet'); // 浏览器的get请求
 let loggerWebPost = log4js.getLogger('webPost'); // 浏览器的post请求
 

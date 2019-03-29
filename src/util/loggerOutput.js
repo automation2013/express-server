@@ -13,15 +13,16 @@ import _forEach from 'lodash/forEach';
  * @param req express路由中的req对象
  */
 function webGetLogger(req) {
-    const { protocol, hostname, originalUrl, ips = [], httpVersion, } = req;
-    let userAgent = req.get('user-agent');
+    const { protocol, originalUrl, ips = [], httpVersion, } = req;
+    const host = req.get('host');
+    const userAgent = req.get('user-agent');
     const cookies = req.enhanceGetAllCookie();
     const ipStr = ips.join(';');
     let cookieStr = '';
     _forEach(cookies, (value, key) => {
         cookieStr += (`${key}=${value};`);
     });
-    const url = `${protocol}://${hostname}${originalUrl}`;
+    const url = `${protocol}://${host}${originalUrl}`;
     const logStr = `url=${url}:::cookies=${cookieStr}:::userAgent=${userAgent}:::httpVersion=${httpVersion}:::ips=${ipStr}`;
     Logger.webGet(logStr);
 }
