@@ -13,7 +13,7 @@ const COOKIE_CONFIG = {
         key    : 'cookie1',
         options: {
             httpOnly: true,
-            maxAge  : 30 * 1000, // 超时时间30s
+            maxAge  : 300 * 1000, // 超时时间300s
             signed  : true, // 必要时才需要将cookie加密（比如用户信息），没必要的情况下就不用了
         },
     },

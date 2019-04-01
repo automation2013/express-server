@@ -12,6 +12,8 @@ const STORE_DATA_KEY = 'enhanceStoreDataKey';
 import _get from 'lodash/get';
 import _assign from 'lodash/assign';
 import _isString from 'lodash/isString';
+import _forEach from 'lodash/forEach';
+import _set from 'lodash/set';
 
 /**
  * 增加express的req的功能
@@ -112,6 +114,17 @@ function enhanceGetCookie(cookieName) {
 function enhanceGetAllCookie() {
     const cookies = this.cookies;
     const signedCookies = this.signedCookies;
-    const cookiesAll = _assign({}, cookies, signedCookies);
+    const cookieSigned = _assign({}, cookies, signedCookies);
+    let cookiesAll = {};
+    _forEach(cookieSigned, (value, key) => {
+        _forEach(COOKIE_CONFIG, (v) => {
+            if (v['key'] === value) { // COOKIE_CONFIG中配置了该cookie，cookie的名字转成非加密的值
+                _set(cookiesAll, [v], value);
+            } else { // COOKIE_CONFIG中未配置了该cookie，则这个cookie可能是服务器端种的
+                _set(cookiesAll, [key], value);
+            }
+        });
+    });
+
     return cookiesAll;
 }
