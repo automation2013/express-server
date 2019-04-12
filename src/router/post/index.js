@@ -8,11 +8,11 @@ const express = require('express');
 const router = express.Router();
 
 // 子路由
-import exampleJson from './example/exampleJson';
-import exampleForm from './example/exampleForm';
+import examplePost from './example/examplePost';
+import exampleUploadFile from './example/exampleUploadFile';
 
 // 使用子路由
-router.use('/', exampleJson);
-router.use('/', exampleForm);
+router.use('/', examplePost);
+router.use('/', exampleUploadFile);
 
 export default router;

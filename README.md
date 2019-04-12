@@ -23,6 +23,7 @@ express简单的服务器
 7、body-parser       express插件，解析http的body
 8、cookie-parser     express插件，解析cookie
 9、express-session   express插件（官网插件名：session），解析express
+10、multer           express插件，处理 multipart/form-data 类型的表单数据，它主要用于上传文件
 10、hbs              express模板引擎（https://github.com/pillarjs/hbs）
 11、log4js           node.js日志框架（https://github.com/log4js-node/log4js-node）
 
