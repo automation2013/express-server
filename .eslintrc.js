@@ -178,8 +178,8 @@ module.exports = {
         "comma-dangle": ["error", {
             "arrays": "always-multiline",
             "objects": "always",
-            "imports": "always",
-            "exports": "always",
+            "imports": "never",
+            "exports": "never",
             "functions": "never"
         }],
         // 强制在逗号周围使用空格，禁止在逗号前使用空格，要求在逗号后使用一个或多个空格
