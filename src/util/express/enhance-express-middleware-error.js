@@ -3,7 +3,7 @@
  * @author automation13 <1271547283@qq.com>
  */
 
-import Logger from './common/logger';
+import Logger from '../logger/logger';
 
 // lodash
 import _forEach from 'lodash/forEach';

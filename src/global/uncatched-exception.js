@@ -3,7 +3,7 @@
  * @author automation13 <1271547283@qq.com>
  */
 
-import Logger from '../util/common/logger';
+import Logger from '../util/logger/logger';
 
 process.on('uncaughtException', (err) => {
     const errorStack = err.stack;
