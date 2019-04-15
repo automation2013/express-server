@@ -13,9 +13,9 @@ import './util/example/enhance-hbs-demo';
 import { enhanceErrorLog, enhanceErrorRender, } from './util/express/enhance-express-middleware-error';
 
 // 服务器配置参数
-import { SERVER_PORT, } from './config/express';
+import { SERVER_PORT } from './config/express';
 
-import Logger from './util/logger/logger';
+import { Logger } from './util/logger';
 
 // 创建express服务器
 const app = express();

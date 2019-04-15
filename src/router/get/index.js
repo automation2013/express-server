@@ -6,7 +6,7 @@
 const express = require('express');
 const router = express.Router();
 
-import { webGetLogger, } from '../../util/logger/loggerOutput';
+import { webGetLogger } from '../../util/logger';
 
 // 子路由
 import example from './example/example';

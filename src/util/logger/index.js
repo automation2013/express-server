@@ -27,4 +27,7 @@ function webGetLogger(req) {
     Logger.webGet(logStr);
 }
 
-export { webGetLogger, };
+export {
+    Logger,
+    webGetLogger
+};
