@@ -25,7 +25,7 @@ function enhanceErrorLog(err, req, res, next) {
         cookieStr += (`${key}=${value};`);
     });
     const errorStack = err.stack;
-    Logger.serverError(`url=${url}:::cookies=${cookieStr}:::errorStack=${errorStack}`);
+    Logger.serverError(`url=${url}:::method=${req.method}:::path=${req.path}:::cookies=${cookieStr}:::errorStack=${errorStack}`);
     next(err);
 }
 
@@ -37,16 +37,25 @@ function enhanceErrorLog(err, req, res, next) {
  * @param next express的res对象
  */
 function enhanceErrorRender(err, req, res, next) {
-    if (req.xhr) {
-        return res.status(500).send({
-            errorMessage: '服务器代码出错',
-        });
+    switch (req.method) {
+        case 'POST':
+            res.status(500).send({
+                errorMessage: '服务器代码出错1',
+            });
+            break;
+        case 'GET':
+            res.status(500).send(`
+                <div style="white-space: pre-wrap; color: gray">
+                    <h2 style="margin: 0">服务器异常</h2>
+                    <h4>${err.stack}</h4>
+                </div>
+            `);
+            break;
+        default: // 暂时只有get和post请求，应该不会走到这里
+            res.status(500).send({
+                errorMessage: '服务器异常',
+            });
+            break;
     }
-    res.status(500).send(`
-        <div style="white-space: pre-wrap; color: gray">
-            <h2 style="margin: 0">服务器异常</h2>
-            <h4>${err.stack}</h4>
-        </div>
-    `);
 }
 export { enhanceErrorLog, enhanceErrorRender };
