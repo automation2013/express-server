@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 // 封装的公共方法
-import { enhanceRequest, enhanceResponse, } from '../util/express/enhance-express-middleware';
+import { enhanceRequest, enhanceResponse } from '../util/express/enhance-middleware';
 
 // 导入路由
 import routerStart from './start'; // 所有业务路由之前处理数据

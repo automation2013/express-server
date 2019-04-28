@@ -44,9 +44,4 @@ router.post('/exampleBlobUploadFile', function(req, res) {
     });
 });
 
-router.post('/exampleForm', function(req, res) {
-    const body = _get(req, 'body') || {};
-    res.json(body);
-});
-
 export default router;

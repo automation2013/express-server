@@ -19,4 +19,9 @@ router.post('/exampleJson', function(req, res) {
     res.json(body);
 });
 
+router.post('/exampleForm', function(req, res) {
+    const body = _get(req, 'body') || {};
+    res.json(body);
+});
+
 export default router;

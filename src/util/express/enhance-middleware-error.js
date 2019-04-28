@@ -37,6 +37,11 @@ function enhanceErrorLog(err, req, res, next) {
  * @param next express的res对象
  */
 function enhanceErrorRender(err, req, res, next) {
+    if (req.xhr) {
+        return res.status(500).send({
+            errorMessage: '服务器代码出错',
+        });
+    }
     res.status(500).send(`
         <div style="white-space: pre-wrap; color: gray">
             <h2 style="margin: 0">服务器异常</h2>
@@ -44,4 +49,4 @@ function enhanceErrorRender(err, req, res, next) {
         </div>
     `);
 }
-export { enhanceErrorLog, enhanceErrorRender, };
+export { enhanceErrorLog, enhanceErrorRender };

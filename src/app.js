@@ -10,7 +10,7 @@ import path from 'path';
 // express中间件
 import router from './router';
 import './util/example/enhance-hbs-demo';
-import { enhanceErrorLog, enhanceErrorRender, } from './util/express/enhance-express-middleware-error';
+import { enhanceErrorLog, enhanceErrorRender } from './util/express/enhance-middleware-error';
 
 // 服务器配置参数
 import { SERVER_PORT } from './config/express';
