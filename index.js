@@ -6,7 +6,7 @@
 /**
  * @description 引入babel，允许node工程中使用es6语法
  */
-require('babel-register');
+require('@babel/register');
 
 /**
  * @description 工程所需要的公共的功能
