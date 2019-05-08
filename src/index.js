@@ -7,7 +7,7 @@
  * @description 开发环境下：引入babel，允许node工程中使用es6语法
  */
 (function setES6Environment() {
-    const nodeInfo = require('./src/util/common/node');
+    const nodeInfo = require('./util/common/node');
     const nodeEnv = nodeInfo.getNodeEnv();
     nodeEnv === 'DEV' && require('@babel/register');
 })();
@@ -15,9 +15,9 @@
 /**
  * @description 工程所需要的公共的功能
  */
-require('./src/global');
+require('./global/index');
 
 /**
  * @description 业务逻辑入口
  */
-require('./src/app');
+require('./app');

@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "NODE_ENV=development nodemon index.js",
-    "debugger": "NODE_ENV=development node index.js",
+    "start": "NODE_ENV=development nodemon src/index.js",
+    "debugger": "NODE_ENV=development node src/index.js",
+    "build": "babel src --out-dir dist --source-maps",
+    "server": "npm run build && NODE_ENV=production node dist/index.js",
     "eslint-init": "eslint --init"
   },
   "repository": {
@@ -35,7 +37,9 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "eslint": "^5.13.0",

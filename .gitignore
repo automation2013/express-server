@@ -42,6 +42,9 @@ jspm_packages/
 # logs created by log4js
 logs/
 
+# babel build product
+dist/
+
 # TypeScript v1 declaration files
 typings/
 
