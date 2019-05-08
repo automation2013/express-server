@@ -42,3 +42,6 @@ es-checker | 可以检测当前版本node对支持情况(工程暂未使用未�
                         JsDoc-support-in-JavaScript：https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript
                         visualstudio文档：https://code.visualstudio.com/Docs/languages/javascript
 
+
+#### 存在问题
+1. express的中间件session在生产环境时其存储session的位置不能是内存，可能产生内存泄漏！！！运行`NODE_ENV=production  node index.js`命令express直接会在控制台打印日志提示这个漏洞。（如果工程启动不起来则需要index.js中的`require('@babel/register');`这行代码生效,可以直接去其掉判断条件。）
