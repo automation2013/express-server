@@ -23,17 +23,20 @@ body-parser | 解析http的body | http://www.expressjs.com.cn/resources/middlewa
 multer | 处理 multipart/form-data 类型的表单数据，它主要用于上传文件 | https://www.npmjs.com/package/multer
 hbs | express模板引擎 | https://github.com/pillarjs/hbs
 
-#### 公共框架
+#### babel
 |组件名|描述|参考|
 ---|:--:|---:
-babel相关
 @babel/core | babel核心库 | https://babel.docschina.org/docs/en/index.html
 @babel/preset-env | babel插件，转换ES2015+ | https://babel.docschina.org/setup#installation
 @babel/register | 安装@babel/core和@babel/preset-env运行工程会报错提示安装这个插件 | https://babeljs.io/docs/en/v7-migration
 @babel/plugin-proposal-class-properties | babel编译class-properties的plugins | https://babel.docschina.org/docs/en/plugins
 @babel/cli | ES6的babel编译器 | https://babeljs.io/docs/en/babel-cli 线上环境配置方法：https://babeljs.io/docs/en/next/babel-node.html 中建议了生产环境babel如何配合node，具体超链接 https://github.com/babel/example-node-server
+@babel/plugin-transform-runtime | 可以重复使用Babel注入的帮助程序代码来节省代码 | https://babeljs.io/docs/en/babel-plugin-transform-runtime
+@babel/runtime | https://babeljs.io/docs/en/babel-plugin-transform-runtime提示安装(配套@babel/plugin-transform-runtime) | https://babeljs.io/docs/en/babel-plugin-transform-runtime
 
-公用
+#### 公共框架
+|组件名|描述|参考|
+---|:--:|---:
 lodash | 是一个一致性、模块化、高性能的 JavaScript 实用工具库 | https://www.lodashjs.com/docs/4.17.5.html
 log4js | node.js日志框架 | https://github.com/log4js-node/log4js-node
 eslint | JavaScript静态代码检查工具（先决条件：Node.js (>=4.x), npm version 2+。 [个人测试eslint版本 >= 5.x 时需要 Node.js >= 8.x] http://eslint.cn/docs/user-guide/getting-started）| http://eslint.cn/  https://blog.csdn.net/u014390748/article/details/79477652
