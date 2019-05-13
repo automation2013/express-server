@@ -177,9 +177,9 @@ module.exports = {
         // 要求或禁止末尾逗号
         "comma-dangle": ["error", {
             "arrays": "always-multiline",
-            "objects": "always",
-            "imports": "never",
-            "exports": "never",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
             "functions": "never"
         }],
         // 强制在逗号周围使用空格，禁止在逗号前使用空格，要求在逗号后使用一个或多个空格
