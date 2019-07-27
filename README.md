@@ -44,7 +44,7 @@ lodash | 是一个一致性、模块化、高性能的 JavaScript 实用工具�
 log4js | node.js日志框架 | https://github.com/log4js-node/log4js-node
 eslint | JavaScript静态代码检查工具（先决条件：Node.js (>=4.x), npm version 2+。 [个人测试eslint版本 >= 5.x 时需要 Node.js >= 8.x] http://eslint.cn/docs/user-guide/getting-started）| http://eslint.cn/  https://blog.csdn.net/u014390748/article/details/79477652
 es-checker | 可以检测当前版本node对支持情况(工程暂未使用未安装) | https://www.jianshu.com/p/a9c27b80af9d
-
+jsonwebtoken | jwt框架 | https://www.npmjs.com/package/jsonwebtoken http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
 
 ## 代码规范
 1、代码注释规范：    JSDoc（https://www.css88.com/doc/jsdoc/tags-description.html）

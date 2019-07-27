@@ -12,13 +12,14 @@
 </head>
 <body>
     <button class="js-button-post-json">post请求json数据</button>
-    <div class="js-json-data">
+    <div class="js-json-data"></div>
 
-    </div>
     <button class="js-button-post-form">post请求form数据</button>
-    <div class="js-form-data">
+    <div class="js-form-data"></div>
 
-    </div>
+    <button class="js-button-jsonwebtoken">post请求测试jsonwebtoken</button>
+    <div class="js-jsonwebtoken"></div>
+
     <form action="/exampleFormUploadFile" method="post" enctype="multipart/form-data" style="padding-top: 20px">
         测试form上传文件
         <input type="text" name="fileName" placeholder="请输入文件名"/><br/>
@@ -33,98 +34,129 @@
         手动创建Blob对象上传文件<br/>
         <input type="file"  class="js-button-post-formdata" onchange="sendInputBlob(this)" />
     </div>
-    <script type="text/javascript">
-        // 发送json类型数据
-        function sendJsonData() {
-            var request = new XMLHttpRequest();
-            request.open('post', '/exampleJson');
-            var params = {name: '张三', age: 18};
-            // 发json类型
-            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // express的req.xhr要用这个字段
-            request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
-            request.send(JSON.stringify(params));
-
-            request.onreadystatechange = function (){
-                if(request.readyState === 4 && request.status === 200){
-                    var reponst = request.response;
-                    var dataJson = document.querySelector('.js-json-data');
-                    dataJson.innerHTML = reponst;
-                }
-            }
-        }
-
-        // 发送form类型数据
-        function sendFomData() {
-            var request = new XMLHttpRequest();
-            request.open('post', '/exampleForm');
-            var params = 'name=zhangsan&age=17';
-            // 发送表单类型
-            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // express的req.xhr要用这个字段
-            request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数  
-            request.send(params);
-
-            request.onreadystatechange = function (){
-                if(request.readyState === 4 && request.status === 200){
-                    var reponst = request.response;
-                    var dataForm = document.querySelector('.js-form-data');
-                    dataForm.innerHTML = reponst;
-                }
-            }
-        }
-
-        // 手动创建FormData发送文件《JavaScript权威指南》18.1.3节（脚本化HTTP - 编码请求主题 Page449）
-        function sendInputFomData(inputDom) {
-            var file = inputDom.files[0];
-            var formdata = new FormData();
-            formdata.append('fileContent', file);
-            var request = new XMLHttpRequest();
-            request.open('post', '/exampleFormUploadFile');
-            //request.setRequestHeader("Content-Type","multipart/form-data"); // 发送FormData时不用设置Content-Type
-            request.onreadystatechange = function (){
-                if(request.readyState === 4 && request.status === 200){
-                    const reponst = request.response;
-                    alert(reponst);
-                }
-            }
-            request.send(formdata);
-        }
-
-        function sendInputBlob(inputDom) {
-            var file = inputDom.files[0];
-            var fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = function(e) {
-                var dataUrl = e.target.result; // base64编码的dataURL类型数据
-                var index = dataUrl.indexOf(',');
-
-                var data = dataUrl.substr(index + 1);
-
-                var request = new XMLHttpRequest();
-                request.open('post', '/exampleBlobUploadFile');
-                const params = {
-                    name: file.name,
-                    content: data
-                };
-
-                // 发json类型
-                request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
-
-                request.onreadystatechange = function (){
-                    if(request.readyState === 4 && request.status === 200){
-                        const reponst = request.response;
-                        alert(reponst);
-                    }
-                }
-                request.send(JSON.stringify(params));
-            }
-
-        }
-
-        var bottomJson = document.querySelector('.js-button-post-json');
-        var bottomForm = document.querySelector('.js-button-post-form');
-
-        bottomJson.onclick = sendJsonData;
-        bottomForm.onclick = sendFomData;
-    </script>
 </body>
+
+<script type="text/javascript">
+  // 发送json类型数据
+  function sendJsonData() {
+    var request = new XMLHttpRequest();
+    request.open('post', '/exampleJson');
+    var params = {name: '张三', age: 18};
+    // 发json类型
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // express的req.xhr要用这个字段
+    request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
+    request.send(JSON.stringify(params));
+
+    request.onreadystatechange = function (){
+      if(request.readyState === 4 && request.status === 200){
+        var reponst = request.response;
+        var dataJson = document.querySelector('.js-json-data');
+        dataJson.innerHTML = reponst;
+      }
+    }
+  }
+
+  // 发送form类型数据
+  function sendFomData() {
+    var request = new XMLHttpRequest();
+    request.open('post', '/exampleForm');
+    var params = 'name=zhangsan&age=17';
+    // 发送表单类型
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // express的req.xhr要用这个字段
+    request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数  
+    request.send(params);
+
+    request.onreadystatechange = function (){
+      if(request.readyState === 4 && request.status === 200){
+        var reponst = request.response;
+        var dataForm = document.querySelector('.js-form-data');
+        dataForm.innerHTML = reponst;
+      }
+    }
+  }
+
+  // 发送请求测试jsonwebtoken
+  function testJsonwebtoken () {
+    var dataJson = document.querySelector('.js-jsonwebtoken');
+    var token = dataJson.getAttribute('data-token');
+
+    var request = new XMLHttpRequest();
+    request.open('post', '/exampleJsonwebtoken');
+    var params = {};
+
+    // 发json类型
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // express的req.xhr要用这个字段
+    request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
+    !!token && request.setRequestHeader('Authorization', `Bearer ${token}`); // header中存jsonwebtoken生成的token
+
+    request.send(JSON.stringify(params));
+
+    request.onreadystatechange = function (){
+      if(request.readyState === 4 && request.status === 200){
+        var reponst = request.response;
+
+        dataJson.setAttribute('data-token', JSON.parse(reponst).token)
+        dataJson.innerHTML = reponst;
+      }
+    }
+  }
+  var bottomJson = document.querySelector('.js-button-post-json');
+  var bottomForm = document.querySelector('.js-button-post-form');
+  var bottomJsonwebtoken = document.querySelector('.js-button-jsonwebtoken');
+
+  bottomJson.onclick = sendJsonData;
+  bottomForm.onclick = sendFomData;
+  bottomJsonwebtoken.onclick = testJsonwebtoken;
+</script>
+
+<script type="text/javascript">
+
+  // 手动创建FormData发送文件《JavaScript权威指南》18.1.3节（脚本化HTTP - 编码请求主题 Page449）
+  function sendInputFomData(inputDom) {
+    var file = inputDom.files[0];
+    var formdata = new FormData();
+    formdata.append('fileContent', file);
+    var request = new XMLHttpRequest();
+    request.open('post', '/exampleFormUploadFile');
+    //request.setRequestHeader("Content-Type","multipart/form-data"); // 发送FormData时不用设置Content-Type
+    request.onreadystatechange = function (){
+      if(request.readyState === 4 && request.status === 200){
+        const reponst = request.response;
+        alert(reponst);
+      }
+    }
+    request.send(formdata);
+  }
+
+  function sendInputBlob(inputDom) {
+    var file = inputDom.files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = function(e) {
+      var dataUrl = e.target.result; // base64编码的dataURL类型数据
+      var index = dataUrl.indexOf(',');
+
+      var data = dataUrl.substr(index + 1);
+
+      var request = new XMLHttpRequest();
+      request.open('post', '/exampleBlobUploadFile');
+      const params = {
+        name: file.name,
+        content: data
+      };
+
+      // 发json类型
+      request.setRequestHeader("Content-Type","application/json;charset=UTF-8");  //用POST的时候一定要有,缺少这句，后台无法获取参数
+
+      request.onreadystatechange = function (){
+        if(request.readyState === 4 && request.status === 200){
+          const reponst = request.response;
+          alert(reponst);
+        }
+      }
+      request.send(JSON.stringify(params));
+    }
+
+  }
+</script>
 </html>

@@ -25,7 +25,7 @@ function enhanceErrorLog(err, req, res, next) {
         cookieStr += (`${key}=${value};`);
     });
     const errorStack = err.stack;
-    Logger.serverError(`url=${url}:::method=${req.method}:::path=${req.path}:::cookies=${cookieStr}:::errorStack=${errorStack}`);
+    Logger.serverError(`errorType=expressMiddleware:::url=${url}:::method=${req.method}:::path=${req.path}:::cookies=${cookieStr}:::errorStack=${errorStack}`);
     next(err);
 }
 
@@ -40,7 +40,7 @@ function enhanceErrorRender(err, req, res, next) {
     switch (req.method) {
         case 'POST':
             res.status(500).send({
-                errorMessage: '服务器代码出错1',
+                errorMessage: '服务器代码出错,请查看"enhanceErrorLog"函数中打印的日志',
             });
             break;
         case 'GET':
