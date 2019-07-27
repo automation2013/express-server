@@ -7,7 +7,10 @@ express简单的服务器
 
 ## 工程启动
 1、查看node版本，确定使用V8及以上的版本
-2、express-server路径下运行命令：npm start
+2、查看工程编译后的产物：express-server路径下运行命令：npm run build
+3、使用nodemon进行本地开发：express-server路径下运行命令：npm start
+4、使用断点进行本地开发：express-server路径下运行命令：npm run debugger （这个命令行暂时做不到断点调试，需要参考这个命令在IDE，如WebStorm或VSCode中配置来实现）
+5、生产环境下线上发布：express-server路径下运行命令：npm run server
 
 
 ## 涉及开源框架

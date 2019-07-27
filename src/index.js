@@ -4,12 +4,20 @@
  */
 
 /**
- * @description 开发环境下：引入babel，允许node工程中使用es6语法
+ * @description 开发环境：引入babel，允许node工程中使用es6语法；生产环境：运行"npm run build"时使用babel进行了编译，因此不需要预置es6开发环境
  */
 (function setES6Environment() {
     const nodeInfo = require('./util/common/node');
     const nodeEnv = nodeInfo.getNodeEnv();
-    nodeEnv === 'DEV' && require('@babel/register');
+    switch (nodeEnv) {
+        case 'production':
+            break;
+        case 'development':
+            require('@babel/register');
+            break;
+        default:
+            console.error('package.json中配置的环境变量NODE_ENV的枚举值不存在');
+    }
 })();
 
 /**

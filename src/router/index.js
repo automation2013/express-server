@@ -45,8 +45,8 @@ const router = express.Router();
     router.use(enhanceResponse); // 增加express的res的功能
 
     // 解析http请求的body
-    router.use(bodyParser.json({ extended: true, limit: '20mb', })); // create application/json parser
-    router.use(bodyParser.urlencoded({ extended: true, limit: '20mb', })); // create application/x-www-form-urlencoded parser。（The extended option allows to choose between parsing the URL-encoded data with the querystring library (when false) or the qs library (when true)）（http://www.expressjs.com.cn/en/resources/middleware/body-parser.html）
+    router.use(bodyParser.json({ extended: true, limit: '20mb' })); // create application/json parser
+    router.use(bodyParser.urlencoded({ extended: true, limit: '20mb' })); // create application/x-www-form-urlencoded parser。（The extended option allows to choose between parsing the URL-encoded data with the querystring library (when false) or the qs library (when true)）（http://www.expressjs.com.cn/en/resources/middleware/body-parser.html）
 })();
 
 /**
