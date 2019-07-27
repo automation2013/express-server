@@ -10,9 +10,9 @@
     const nodeInfo = require('./util/common/node');
     const nodeEnv = nodeInfo.getNodeEnv();
     switch (nodeEnv) {
-        case 'production':
+        case 'PRO':
             break;
-        case 'development':
+        case 'DEV':
             require('@babel/register');
             break;
         default:
