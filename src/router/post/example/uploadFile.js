@@ -10,13 +10,10 @@ import multer from 'multer';
 
 const router = express.Router();
 
-// lodash
-import _get from 'lodash/get';
-
 (function() {
     const storage = multer.diskStorage({
         destination: (req, file, cb) => {
-            fs.mkdir('my-uploads', () => { // 如果没有文件夹则先创建文件夹
+            fs.mkdir('my-uploads', { recursive: true }, () => { // 如果没有文件夹则先创建文件夹
                 cb(null, 'my-uploads');
             });
         },
@@ -24,7 +21,7 @@ import _get from 'lodash/get';
             cb(null, file.originalname);
         },
     });
-    const upload = multer({ storage: storage, });
+    const upload = multer({ storage: storage });
 
     router.post('/exampleFormUploadFile', upload.single('fileContent'), function(req, res) {
         res.send('exampleFormUploadFile success');
@@ -32,8 +29,8 @@ import _get from 'lodash/get';
 })();
 
 router.post('/exampleBlobUploadFile', function(req, res) {
-    const { name, content, } = req.body;
-    fs.writeFile(name, content, { encoding: 'base64', }, function(err) {
+    const { name, content } = req.body;
+    fs.writeFile(name, content, { encoding: 'base64' }, function(err) {
         if (err) {
             console.log('写文件操作失败');
             res.send('exampleBlobUploadFile fail');
