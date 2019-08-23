@@ -9,7 +9,7 @@ express简单的服务器
 1、查看node版本，确定使用V8及以上的版本
 2、查看工程编译后的产物：express-server路径下运行命令：npm run build
 3、使用nodemon进行本地开发：express-server路径下运行命令：npm start
-4、使用断点进行本地开发：express-server路径下运行命令：npm run debugger （这个命令行暂时做不到断点调试，需要参考这个命令在IDE，如WebStorm或VSCode中配置来实现）
+4、使用断点进行本地开发：express-server路径下运行命令：npm run debugger （VSCode中配置已经完成，launch.json中“npm-debugger”调试配置中的端口号配置必须和package.json的debugger命令下的端口一致，这里设的是9229）
 5、生产环境下线上发布：express-server路径下运行命令：npm run server
 
 
