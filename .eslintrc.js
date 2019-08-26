@@ -24,6 +24,7 @@ module.exports = {
      * 设置解析器 (http://eslint.cn/docs/user-guide/configuring)
      */
     "parserOptions": {
+        "ecmaVersion": 2017,
         "sourceType": "module"
     },
 
@@ -81,7 +82,10 @@ module.exports = {
         // 禁用迭代器
         "no-iterator": "error",
         // 禁用标签语句
-        "no-labels": ["error", { "allowLoop": false, "allowSwitch": false }],
+        "no-labels": ["error", {
+            "allowLoop": false,
+            "allowSwitch": false
+        }],
         // 禁用不必要的嵌套块
         "no-lone-blocks": "error",
         // 禁止使用多个空格
@@ -89,7 +93,11 @@ module.exports = {
         // 禁止使用多行字符串
         "no-multi-str": "error",
         // 不允许多个空行
-        "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1, "maxEOF": 0 }],
+        "no-multiple-empty-lines": ["error", {
+            "max": 1,
+            "maxBOF": 1,
+            "maxEOF": 0
+        }],
         // 通过禁止使用 new 关键字调用构造函数但却不将结果赋值给一个变量来保持一致性和约定
         "no-new": "error",
         // 禁用Function构造函数
@@ -115,7 +123,11 @@ module.exports = {
         // 禁用一成不变的循环条件
         "no-unmodified-loop-condition": "error",
         // 禁止出现未使用过的表达式
-        "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true, "allowTaggedTemplates": true }],
+        "no-unused-expressions": ["error", {
+            "allowShortCircuit": true,
+            "allowTernary": true,
+            "allowTaggedTemplates": true
+        }],
         // 禁止不必要的 .call() 和 .apply()
         "no-useless-call": "error",
         // 禁止多余的 return 语句
@@ -125,7 +137,9 @@ module.exports = {
         // 要求使用 Error 对象作为 Promise 拒绝的原因
         "prefer-promise-reject-errors": "error",
         // 需要把立即执行的函数包裹起来，强制总是包裹 function 表达式
-        "wrap-iife": ["error", "inside", { "functionPrototypeMethods": true }],
+        "wrap-iife": ["error", "inside", {
+            "functionPrototypeMethods": true
+        }],
         // 禁止Yoda条件
         "yoda": ["error", "never"],
 
@@ -149,7 +163,11 @@ module.exports = {
         // 禁止将变量初始化为 undefined
         "no-undef-init": "error",
         // 禁止在变量定义之前使用它们
-        "no-use-before-define": ["error", { "functions": false, "classes": false, "variables": false }],
+        "no-use-before-define": ["error", {
+            "functions": false,
+            "classes": false,
+            "variables": false
+        }],
 
         /**
          * Node.js and CommonJS
@@ -157,7 +175,7 @@ module.exports = {
          */
 
         // 在 Node.js 中，最普遍的处理异步行为是回调模式，这个模式期望一个 Error 对象或 null 作为回调的第一个参数。
-        "handle-callback-err": ["error", "^(err|error)$" ],
+        "handle-callback-err": ["error", "^(err|error)$"],
         // 禁止调用 require 时使用 new 操作符
         "no-new-require": "error",
         // 禁止对 __dirname 和 __filename 进行字符串连接 (原因和解决方案见eslint官网：http://eslint.cn/docs/rules/no-path-concat)
@@ -171,9 +189,13 @@ module.exports = {
         // 强制在代码块中开括号前和闭括号后有空格
         "block-spacing": ["error", "always"],
         // 大括号风格要求，将大括号放在控制语句或声明语句同一行的位置，允许块的开括号和闭括号在同一行
-        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "brace-style": ["error", "1tbs", {
+            "allowSingleLine": true
+        }],
         // 当命名变量时，要求使用骆驼拼写法
-        "camelcase": ["error", {properties: "always"}],
+        "camelcase": ["error", {
+            properties: "always"
+        }],
         // 要求或禁止末尾逗号
         "comma-dangle": ["error", {
             "arrays": "always-multiline",
@@ -183,7 +205,10 @@ module.exports = {
             "functions": "never"
         }],
         // 强制在逗号周围使用空格，禁止在逗号前使用空格，要求在逗号后使用一个或多个空格
-        "comma-spacing": ["error", { "before": false, "after": true }],
+        "comma-spacing": ["error", {
+            "before": false,
+            "after": true
+        }],
         // 逗号风格，要求逗号放在数组元素、对象属性或变量声明之后，且在同一行
         "comma-style": ["error", "last"],
         // 强制文件末尾不要有换行符
@@ -196,9 +221,17 @@ module.exports = {
             "VariableDeclarator": 1,
             "outerIIFEBody": 1,
             "MemberExpression": 1,
-            "FunctionDeclaration": { "parameters": 1, "body": 1 },
-            "FunctionExpression": { "parameters": 1, "body": 1 },
-            "CallExpression": { "arguments": 1 },
+            "FunctionDeclaration": {
+                "parameters": 1,
+                "body": 1
+            },
+            "FunctionExpression": {
+                "parameters": 1,
+                "body": 1
+            },
+            "CallExpression": {
+                "arguments": 1
+            },
             "ArrayExpression": 1,
             "ObjectExpression": 1,
             "ImportDeclaration": 1,
@@ -206,13 +239,21 @@ module.exports = {
             "ignoreComments": false
         }],
         // 要求对象字面量中的冒号和值都水平对齐
-        "key-spacing": ["error", { "align": "colon" }],
+        "key-spacing": ["error", {
+            "align": "colon"
+        }],
         // 要求在关键字之前至少有一个空格，要求在关键字之后至少有一个空格
-        "keyword-spacing": ["error", { "before": true, "after": true }],
+        "keyword-spacing": ["error", {
+            "before": true,
+            "after": true
+        }],
         // 强制使用一致的换行符风格，强制使用 Unix 换行符
         "linebreak-style": ["error", "unix"],
         // 要求调用 new 操作符时有首字母大写的函数，要求调用首字母大写的函数时有 new 操作符
-        "new-cap": ["error", { "newIsCap": true, "capIsNew": false }],
+        "new-cap": ["error", {
+            "newIsCap": true,
+            "capIsNew": false
+        }],
         // 要求调用无参构造函数时带括号
         "new-parens": "error",
         // 由于单参数的陷阱，和全局范围的 Array 可能被重定义，通常不允许使用 Array的构造函数来创建数组。唯一的例外是通过给构造函数传入指定的一个数值来创建稀疏数组。
@@ -239,20 +280,38 @@ module.exports = {
         // 禁用行尾空格
         "no-trailing-spaces": "error",
         // 禁止可以在有更简单的可替代的表达式时使用三元操作符
-        "no-unneeded-ternary": ["error", { "defaultAssignment": false }],
+        "no-unneeded-ternary": ["error", {
+            "defaultAssignment": false
+        }],
         // 禁止属性前有空白
         "no-whitespace-before-property": "error",
         // 强制在大括号中使用一致的空格
         "object-curly-spacing": ["error", "always"],
         // 强制将对象的属性放在不同的行上
-        "object-property-newline": ["error", { "allowMultiplePropertiesPerLine": true }],
-        "one-var": ["error", { "initialized": "never" }],
+        "object-property-newline": ["error", {
+            "allowMultiplePropertiesPerLine": true
+        }],
+        "one-var": ["error", {
+            "initialized": "never"
+        }],
         // 强制操作符使用一致的换行符
-        "operator-linebreak": ["error", "before", { "overrides": { "?": "before", ":": "before" } }],
+        "operator-linebreak": ["error", "before", {
+            "overrides": {
+                "?": "before",
+                ":": "before"
+            }
+        }],
         // 要求或禁止块内填充
-        "padded-blocks": ["error", { "blocks": "never", "switches": "never", "classes": "never" }],
+        "padded-blocks": ["error", {
+            "blocks": "never",
+            "switches": "never",
+            "classes": "never"
+        }],
         // 强制使用一致的反勾号、双引号或单引号
-        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+        "quotes": ["error", "single", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }],
         // 要求指定的节点使用 JSDoc 注释
         "require-jsdoc": ["error", {
             "require": {
@@ -266,7 +325,10 @@ module.exports = {
         // 要求在语句末尾使用分号
         "semi": ["error", "always"],
         // 强制分号前无空格，分好后有空格
-        "semi-spacing": ["error", { "before": false, "after": true }],
+        "semi-spacing": ["error", {
+            "before": false,
+            "after": true
+        }],
         // 要求语句块之前有空格
         "space-before-blocks": ["error", "always"],
         // 禁止函数圆括号之前有一个空格
@@ -276,11 +338,20 @@ module.exports = {
         // 要求中缀操作符周围有空格
         "space-infix-ops": "error",
         // 要求或禁止在一元操作符之前或之后存在空格
-        "space-unary-ops": ["error", { "words": true, "nonwords": false }],
+        "space-unary-ops": ["error", {
+            "words": true,
+            "nonwords": false
+        }],
         // 要求或禁止在注释前有空白
         "spaced-comment": ["error", "always", {
-            "line": { "markers": ["*package", "!", "/", ",", "="] },
-            "block": { "balanced": true, "markers": ["*package", "!", ",", ":", "::", "flow-include"], "exceptions": ["*"] }
+            "line": {
+                "markers": ["*package", "!", "/", ",", "="]
+            },
+            "block": {
+                "balanced": true,
+                "markers": ["*package", "!", ",", ":", "::", "flow-include"],
+                "exceptions": ["*"]
+            }
         }],
         // 禁止在模板标记和它们的字面量之间有空格
         "template-tag-spacing": ["error", "never"],
@@ -297,9 +368,15 @@ module.exports = {
         // 要求箭头函数的参数使用圆括号
         "arrow-parens": ["error", "always"],
         // 要求箭头函数的箭头之前或之后有空格
-        "arrow-spacing": ["error", { "before": true, "after": true }],
+        "arrow-spacing": ["error", {
+            "before": true,
+            "after": true
+        }],
         // 强制 generator 函数中 * 号周围使用一致的空格
-        "generator-star-spacing": ["error", { "before": true, "after": true }],
+        "generator-star-spacing": ["error", {
+            "before": true,
+            "after": true
+        }],
         // 禁止在对象中使用不必要的计算属性
         "no-useless-computed-key": "error",
         // 禁用不必要的构造函数
