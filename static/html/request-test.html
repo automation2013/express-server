@@ -11,28 +11,51 @@
     <title>request-test</title>
 </head>
 <body>
-    <button class="js-button-post-json">post请求json数据</button>
-    <div class="js-json-data"></div>
+    <div>
+        <span>img标签发get请求，express拦截get请求并返回svg源码作为图片：</span>
+        <img src="/example-svg" style="width: 20px;height: 20px;">
+        <hr/>
+    </div>
 
-    <button class="js-button-post-form">post请求form数据</button>
-    <div class="js-form-data"></div>
+    <div>
+        <button class="js-button-post-json">post请求json数据</button>
+        <div class="js-json-data"></div>
+        <hr/>
+    </div>
 
-    <button class="js-button-jsonwebtoken">post请求测试jsonwebtoken</button>
-    <div class="js-jsonwebtoken"></div>
+    <div>
+        <button class="js-button-post-form">post请求form数据</button>
+        <div class="js-form-data"></div>
+        <hr/>
+    </div>
 
-    <form action="/exampleFormUploadFile" method="post" enctype="multipart/form-data" style="padding-top: 20px">
-        测试form上传文件
-        <input type="text" name="fileName" placeholder="请输入文件名"/><br/>
-        <input type="file"  name="fileContent"/><br/>
-        <button type="submit">上传</button>
-    </form>
+    <div>
+        <button class="js-button-jsonwebtoken">post请求测试jsonwebtoken</button>
+        <div class="js-jsonwebtoken"></div>
+        <hr/>
+    </div>
+
+
+    <div>
+        <form action="/exampleFormUploadFile" method="post" enctype="multipart/form-data" style="padding-top: 20px">
+            测试form上传文件
+            <input type="text" name="fileName" placeholder="请输入文件名"/><br/>
+            <input type="file"  name="fileContent"/><br/>
+            <button type="submit">上传</button>
+        </form>
+        <hr/>
+    </div>
+
     <div style="padding-top: 20px">
         手动创建FormData对象上传文件<br/>
         <input type="file"  class="js-button-post-formdata" onchange="sendInputFomData(this)" />
+        <hr/>
     </div>
+
     <div style="padding-top: 20px">
         手动创建Blob对象上传文件<br/>
         <input type="file"  class="js-button-post-formdata" onchange="sendInputBlob(this)" />
+        <hr/>
     </div>
 </body>
 

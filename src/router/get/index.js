@@ -13,6 +13,7 @@ import example from './example/example';
 import exampleCookie from './example/exampleCookie';
 import exampleSession from './example/exampleSession';
 import exampleHandlebars from './example/exampleHandlebars';
+import exampleSvg from './example/example-svg';
 
 // 所有get请求之前处理
 router.get('/*', function(req, res, next) {
@@ -35,5 +36,6 @@ router.use('/', example);
 router.use('/', exampleCookie);
 router.use('/', exampleSession);
 router.use('/', exampleHandlebars);
+router.use('/', exampleSvg);
 
 export default router;
